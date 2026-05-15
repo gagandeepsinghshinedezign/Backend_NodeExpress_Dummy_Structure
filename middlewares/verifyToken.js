@@ -22,7 +22,7 @@ async function verifyJwtToken(req, res, next) {
             return res.status(statusCode.UNAUTHORIZED).send({ message: "Unauthorized." })
         }
 
-        const tokenUser = await UserModel.findOne(result?.id).populate('roles')
+        const tokenUser = await UserModel.findById(result?.id).populate('roles')
 
         if (!tokenUser) {
             return res.status(statusCode.UNAUTHORIZED).send({ message: "Unauthorized." })
@@ -37,9 +37,9 @@ async function verifyJwtToken(req, res, next) {
     } catch (error) {
         console.log("Error in verifyToken middleware:", error)
 
-        return res.status(statusCode.BAD_REQUEST).send({message:error?.message})
+        return res.status(statusCode.BAD_REQUEST).send({ message: error?.message })
 
     }
 }
 
-module.exports={verifyJwtToken}
+module.exports = { verifyJwtToken }
