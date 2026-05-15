@@ -14,8 +14,10 @@ function verifyToken(token) {
     try {
 
         const decode = jwt.verify(token, config.env.jwtSecret)
+        return { err: null, result: decode }
     } catch (error) {
         console.log("Error in token verification:", error)
+        return { err: error, result: null }
     }
 }
 

@@ -6,7 +6,7 @@ var router = express.Router();
 //   res.render('index', { title: 'Express' });
 // });
 
-router.use("/onboarding",onboarding)
+// router.use("/onboarding",onboarding)
 
 // const verifyToken=
 
