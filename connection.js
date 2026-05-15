@@ -13,7 +13,7 @@ const uri = `mongodb+srv://${config.env.database.userName}:${config.env.database
 class DB {
     static async connectDB() {
         try {
-            let connection = await mongoose.connect("mongodb+srv://gagandeepsingh:vBSE002PSd83qLGs@cluster0.ek9cipf.mongodb.net/user-management-system", connectionOptions);
+            let connection = await mongoose.connect(uri, connectionOptions);
             console.log("Successfully connected to MongoDB Atlas via Mongoose!", config.env.database.name);
             return connection
         } catch (error) {

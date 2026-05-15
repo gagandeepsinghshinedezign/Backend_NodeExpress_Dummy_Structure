@@ -2,10 +2,13 @@ const { body, validationResult } = require('express-validator')
 
 function validator(req, res, next) {
 
-    const error = validationResult(req)
+    console.log("req  in validator--->", req.body)
 
+    const error = validationResult(req.body)
+    console.log("Error in validator:", error)
 
     if (!error.isEmpty()) {
+
         return res.status(400).json({ message: error.errors[0].msg })
     }
     next()
@@ -19,9 +22,10 @@ module.exports = {
      */
 
     validateSignup: [
-        body('fullName')
+        body('firstName')
             .isEmpty()
             .withMessage("Firstname is required."),
+
 
         body('email')
             .isEmpty()

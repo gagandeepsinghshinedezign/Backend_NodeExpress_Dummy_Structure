@@ -11,8 +11,8 @@ function randomOTP(length, isOtp = "true") {
     let result = ''
     let counter = 0
 
-    while (counter <= length) {
-        result += otp.charAt(Math.floor(Math.random() * otpString.length))
+    while (counter < length) {
+        result += otpString.charAt(Math.floor(Math.random() * otpString.length))
         counter++
     };
 

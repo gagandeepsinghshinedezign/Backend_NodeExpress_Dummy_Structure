@@ -6,10 +6,10 @@ const UserSchema = new mongoose.Schema({
     lastName: { type: String, trin: true, required: false },
     email: { type: String, trim: true, required: true, unique: true },
     password: { type: String, trim: true, required: true },
-    status: { type: String, enum: [...Object.values(profileStatus)], default: [profileStatus.Active] },
-    role: { type: mongoose.Schema.Types.ObjectId, ref: 'Roles' },
-    account: { type: String, enum: [...Object.values(accountType)], }
-}, { timestamps: true })
+    status: { type: String, enum: [...Object.values(profileStatus) || null], default: profileStatus.Active },
+    roleId: { type: mongoose.Schema.Types.ObjectId, ref: 'RoleModel' },
+    account: { type: String, enum: [...Object.values(accountType) || null], }
+}, { timestamp: true })
 
 const UserModel = mongoose.model("User", UserSchema)
 
